@@ -12,7 +12,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <table class="table table-striped table-success" style="width:30%">
+            <table class="table table-striped table-success" style="width:30%; margin-left:10%">
                 <tr><td> <label class="form-label" for="Email">ID</label> </td> <td> <asp:TextBox ID="custid" runat="server" CssClass="form-control"></asp:TextBox></td></tr>
                 <tr><td><label class="form-label" for="Email">Name</label>    </td> <td>  <asp:TextBox ID="namecust" runat="server" CssClass="form-control"></asp:TextBox></td></tr>
 
@@ -20,22 +20,31 @@
             
             <br />
        
-            <asp:Button ID="ss" runat="server" Text="Search" CssClass="btn btn-success" OnClick="ss_Click" />
+            <asp:Button ID="ss" runat="server" Text="Search" CssClass="btn btn-success" OnClick="ss_Click" style="margin-left:10%"/>
             <br /><br />
 
          
-            <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped">
+            <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" style="width:70%; margin-left:15%;">
                 <Columns>
-        <asp:ImageField DataImageUrlField="Photo"  ControlStyle-Width="50" ControlStyle-Height="50"/>
+                    <asp:BoundField DataField="CustomerName" HeaderText="Name" />
+                    <asp:BoundField DataField="Age" HeaderText="Age" />
+                    <asp:BoundField DataField="City1" HeaderText="City" />
+                    <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />
+        <asp:ImageField DataImageUrlField="Photo"  ControlStyle-Width="50" ControlStyle-Height="50">
+<ControlStyle Height="50px" Width="50px"></ControlStyle>
+                    </asp:ImageField>
     </Columns>
               
             </asp:GridView>
 
             <br />
             <br />
+            <div style="margin-left:5%; color:white; width:30%; text-align:center" class="bg-success bg-gradient">
             <asp:Label ID="co" runat="server" Text="Count = "></asp:Label><br />
             <asp:Label ID="avg" runat="server" Text="Average = "></asp:Label><br />
             <asp:Label ID="ma" runat="server" Text="Max = "></asp:Label>
+                </div>
         </div>
     </form>
 </body>

@@ -21,7 +21,7 @@ namespace EntityFrameWork22_1
 
                 var query = from c in xxx.Customers
                             join o in xxx.Cities on c.City equals o.CityID
-                            select new { c.CustomerName, c.Age, o.City1, c.Phone, c.Email, c.Photo };
+                            select new {c.CustomerID, c.CustomerName, c.Age, o.City1, c.Phone, c.Email, c.Photo };
                 GridView1.DataSource = query.ToList();
                 GridView1.DataBind();
             }
@@ -30,12 +30,11 @@ namespace EntityFrameWork22_1
         }
         protected void ss_Click(object sender, EventArgs e)
         {
-            Image img =new Image();
             
             int ii = Convert.ToInt32(custid.Text);
             var query = from c in xxx.Customers
                         join o in xxx.Cities on c.City equals o.CityID
-                        where (c.CustomerID == ii && c.CustomerName.Contains(namecust.Text))
+                        where (c.CustomerID == ii || c.CustomerName.Contains(namecust.Text))
                         select new { c.CustomerName, c.Age, o.City1, c.Phone, c.Email,c.Photo};
 
             GridView1.DataSource= query.ToList();
@@ -43,6 +42,11 @@ namespace EntityFrameWork22_1
 
 
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Task1.aspx");
         }
     }
 }

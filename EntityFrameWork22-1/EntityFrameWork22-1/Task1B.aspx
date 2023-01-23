@@ -12,6 +12,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" Text="Add Customer" CssClass="btn bg-success" style="color:white" OnClick="Button1_Click"/>
+
             <table class="table table-striped table-success" style="width:30%; margin-left:10%">
                 <tr><td> <label class="form-label" for="Email">ID</label> </td> <td> <asp:TextBox ID="custid" runat="server" CssClass="form-control"></asp:TextBox></td></tr>
                 <tr><td><label class="form-label" for="Email">Name</label>    </td> <td>  <asp:TextBox ID="namecust" runat="server" CssClass="form-control"></asp:TextBox></td></tr>
@@ -34,6 +36,8 @@
         <asp:ImageField DataImageUrlField="Photo"  ControlStyle-Width="50" ControlStyle-Height="50">
 <ControlStyle Height="50px" Width="50px"></ControlStyle>
                     </asp:ImageField>
+                    <asp:HyperLinkField DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="Update.aspx?id={0}" Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="Delete.aspx?id={0}" Text="Delete" />
     </Columns>
               
             </asp:GridView>
